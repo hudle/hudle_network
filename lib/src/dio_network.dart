@@ -34,9 +34,6 @@ abstract class DioNetwork {
         if (response.statusCode == 204) {
           return BaseResponse(success: true, message: '', data: null, code: 204);
         }
-        
-        final json = jsonDecode(response.data);
-      
 
         return response.getBaseResponse<T>(skipMetaParsing: skipMetaParsing, genericParser: provideParser<T>());
       } else {
