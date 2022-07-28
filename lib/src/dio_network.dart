@@ -85,7 +85,7 @@ BaseResponse<T> _handleDioError<T>(DioError e) {
           final validationError = e.response?.data['errors'];
 
          return  BaseResponse.fromError(
-           "",
+           e.response?.data['message'],
            errorCode: e.response?.statusCode ?? -1, error: validationError );
         case 403:
           return  BaseResponse.fromError(
